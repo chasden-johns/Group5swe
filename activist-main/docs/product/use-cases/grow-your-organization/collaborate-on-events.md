@@ -1,2 +1,0 @@
-# Collaborate on events
-
