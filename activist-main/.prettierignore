@@ -1,0 +1,7 @@
+node_modules/
+.nuxt/
+.output/
+
+playwright-report/
+tests-examples/
+test-results/
