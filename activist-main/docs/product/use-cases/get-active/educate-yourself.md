@@ -1,2 +1,0 @@
-# Educate yourself
-
