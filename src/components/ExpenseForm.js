@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 const ExpenseForm = ({ handleAddExpense }) => {
-  const [newExpense, setNewExpense] = useState({ name: '', amount: '' });
+  const [newExpense, setNewExpense] = useState({ name: '', category: '', amount: '' });
 
   const submitExpense = (e) => {
     e.preventDefault();
     handleAddExpense(newExpense);
-    setNewExpense({ name: '', amount: '' });
+    setNewExpense({ name: '', category: '', amount: '' });
   };
 
   return (
@@ -17,6 +17,14 @@ const ExpenseForm = ({ handleAddExpense }) => {
         placeholder="Expense Name"
         value={newExpense.name}
         onChange={(e) => setNewExpense({ ...newExpense, name: e.target.value })}
+        style={styles.input}
+        required
+      />
+      <input
+        type="text"
+        placeholder="Expense Category"
+        value={newExpense.category}
+        onChange={(e) => setNewExpense({ ...newExpense, category: e.target.value })}
         style={styles.input}
         required
       />

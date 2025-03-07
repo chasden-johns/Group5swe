@@ -2,16 +2,30 @@
 import React from 'react';
 
 const ExpenseList = ({ expenses }) => {
+
+  const categoryGroup = expenses.reduce((cat, expense) => {
+    if(!cat[expense.category]) {
+      cat[expense.category] = [];
+    }
+    cat[expense.category].push(expense);
+
+    return cat;
+  }, {});
   return (
     <div style={styles.container}>
       <h3 style={styles.title}>Your Expenses</h3>
-      <ul style={styles.list}>
-        {expenses.map((expense, index) => (
-          <li key={index} style={styles.expenseItem}>
-            {expense.name}: <span style={styles.amount}>${expense.amount}</span>
-          </li>
-        ))}
-      </ul>
+      {Object.entries(categoryGroup).map(([category, group]) => (
+        <div>
+          <h4>{category}</h4>
+            <ul style={styles.list}>
+            {group.map((expense, index) => (
+              <li key={index} style={styles.expenseItem}>
+                {expense.name}: <span style={styles.amount}>${expense.amount}</span>
+              </li>
+              ))}
+            </ul>
+        </div>
+      ))}
     </div>
   );
 };
@@ -35,15 +49,18 @@ const styles = {
   list: {
     listStyle: 'none',
     padding: 0,
+    display: 'flex',
+    justifyContent: 'center',
   },
   expenseItem: {
-    margin: '10px 0',
+    margin: '0 10px',
     padding: '12px',
     borderRadius: '5px',
     background: 'linear-gradient(135deg, #06d6a0, #118AB2)',
     color: '#fff',
     fontSize: '1rem',
     fontWeight: 'bold',
+    display: 'inline-block',
   },
   amount: {
     fontWeight: 'bold',
