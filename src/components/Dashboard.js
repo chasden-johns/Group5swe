@@ -2,6 +2,7 @@
 import React from 'react';
 import ExpenseForm from './ExpenseForm';
 import ExpenseList from './ExpenseList';
+import BalanceDisplay from './BalanceDisplay';
 
 const Dashboard = ({ user, handleLogout, handleAddExpense, expenses }) => {
   return (
@@ -9,6 +10,10 @@ const Dashboard = ({ user, handleLogout, handleAddExpense, expenses }) => {
       <h1 style={styles.title}>Welcome, {user.email}!</h1>
       <button onClick={handleLogout} style={styles.button}>Logout</button>
       <h2 style={styles.subtitle}>Financial Tracker</h2>
+      
+      {/* Add BalanceDisplay component */}
+      <BalanceDisplay expenses={expenses} />
+      
       <ExpenseForm handleAddExpense={handleAddExpense} />
       <ExpenseList expenses={expenses} />
     </div>
