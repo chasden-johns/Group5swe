@@ -66,7 +66,7 @@ const styles = {
     padding: '10px 20px',
     borderRadius: '5px',
     border: 'none',
-    background: 'linear-gradient(90deg, #28a745, #218838)', // Green gradient for button
+    background: 'linear-gradient(90deg, #28a745, #218838)',
     color: '#fff',
     fontWeight: 'bold',
     fontSize: '1rem',
