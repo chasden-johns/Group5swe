@@ -1,2 +1,0 @@
-# Onboard new people
-
